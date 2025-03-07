@@ -1,0 +1,74 @@
+
+import React from 'react';
+import { ArrowDown } from 'lucide-react';
+
+const HeroSection = () => {
+  return (
+    <section id="home" className="min-h-screen relative flex items-center justify-center pt-16 px-6 overflow-hidden">
+      {/* Decorative elements */}
+      <div className="circle-decoration w-72 h-72 top-20 left-20 animate-pulse-glow"></div>
+      <div className="circle-decoration w-96 h-96 bottom-20 right-10 opacity-10 bg-violet animate-pulse-glow"></div>
+      
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDQgTCA0IDAgTCAxNiAxMiBMIDEyIDE2IFogTSAxMiAwIEwgMTYgNCBMIDQgMTYgTCAwIDEyIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg3NCwgMTQ0LCAyMjYsIDAuMSkiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSI+PC9yZWN0Pjwvc3ZnPg==')]"></div>
+      
+      <div className="max-w-7xl w-full mx-auto z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-0">
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-glow-text">
+            <span className="bg-gradient-to-r from-electric-blue via-violet to-neon-green bg-clip-text text-transparent">
+              UI/UX Designer
+            </span> <br />
+            with a passion for <br />
+            <span className="text-text-primary">creative solutions</span>
+          </h1>
+          
+          <p className="text-xl text-text-secondary mt-6 max-w-xl mx-auto lg:mx-0">
+            Crafting intuitive experiences with passion & precision, 
+            turning complex problems into elegant designs.
+          </p>
+          
+          <div className="mt-10 space-x-4">
+            <a 
+              href="#projects" 
+              className="px-8 py-4 rounded-full bg-electric-blue text-white font-medium transition-all hover:shadow-neon-blue"
+            >
+              View My Work
+            </a>
+            <a 
+              href="#contact" 
+              className="px-8 py-4 rounded-full bg-transparent border border-electric-blue text-electric-blue font-medium transition-all hover:shadow-neon-blue"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+        
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+          <div className="relative">
+            {/* Profile image with circular frame */}
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-electric-blue animate-pulse-glow">
+              {/* Replace with your actual photo */}
+              <div className="w-full h-full bg-gradient-to-br from-violet to-electric-blue flex items-center justify-center text-white">
+                <span className="text-lg">Your Photo</span>
+              </div>
+            </div>
+            
+            {/* Decorative rings */}
+            <div className="absolute inset-0 -m-4 border-2 border-dashed border-electric-blue/30 rounded-full animate-rotate-slow"></div>
+            <div className="absolute inset-0 -m-8 border border-violet/20 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Scroll down indicator */}
+      <a 
+        href="#about" 
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-text-secondary hover:text-electric-blue transition-colors"
+      >
+        <span className="mb-2 text-sm">Scroll Down</span>
+        <ArrowDown className="animate-bounce" size={20} />
+      </a>
+    </section>
+  );
+};
+
+export default HeroSection;
