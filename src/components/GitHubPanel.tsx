@@ -216,7 +216,7 @@ const getLevelColor = (level: number) => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center text-sm text-text-secondary mb-2 hidden md:block">
+      <div className="justify-between items-center text-sm text-text-secondary mb-2 hidden md:block">
         <span>Less</span>
         <div className="flex items-center gap-1">
           <span className="w-3 h-3 bg-muted rounded-sm"></span>

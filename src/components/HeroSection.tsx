@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
 
@@ -45,11 +44,13 @@ const HeroSection = () => {
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
           <div className="relative">
             {/* Profile image with circular frame */}
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-electric-blue animate-pulse-glow">
+            <div className="w-96 h-96 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-electric-blue animate-pulse-glow">
               {/* Replace with your actual photo */}
-              <div className="w-full h-full bg-gradient-to-br from-violet to-electric-blue flex items-center justify-center text-white">
-                <span className="text-lg">Your Photo</span>
-              </div>
+              <img
+                src="src\assest\pp.jpg" // Replace with the actual path to your photo
+                alt="Your Photo"
+                className="w-full h-full object-cover"
+              />
             </div>
             
             {/* Decorative rings */}
