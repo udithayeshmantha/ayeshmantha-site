@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Github, GitPullRequest, Star, GitCommit, MessageSquare } from 'lucide-react';
 import { Button } from './ui/button';
+import { request, gql } from 'graphql-request';
 
 interface ContributionDay {
   level: 0 | 1 | 2 | 3 | 4; // 0 = no contribution, 4 = most contributions
@@ -20,61 +20,127 @@ const GitHubPanel: React.FC = () => {
   const [year, setYear] = useState(new Date().getFullYear());
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState<any>(null);
-  const username = "udithayeshmantha";
-  
-  useEffect(() => {
-    const fetchGitHubUser = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(`https://api.github.com/users/${username}`);
-        if (response.ok) {
-          const data = await response.json();
-          setUserData(data);
-        } else {
-          console.error('Failed to fetch GitHub user data');
-        }
-      } catch (error) {
-        console.error('Error fetching GitHub data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    
-    fetchGitHubUser();
-  }, []);
-  
-  // Generate mock contribution data for display purposes
-  // In a real implementation, you would fetch this from GitHub's API
-  const generateMockContributions = (): ContributionDay[] => {
-    const contributions: ContributionDay[] = [];
-    const daysInYear = 52 * 7; // Approx. days to show in contribution panel
-    
-    for (let i = 0; i < daysInYear; i++) {
-      // Randomly assign contribution levels, with higher chance of 0 (no contribution)
-      const rand = Math.random();
-      let level: 0 | 1 | 2 | 3 | 4 = 0;
-      
-      if (rand > 0.8) level = 1;
-      if (rand > 0.9) level = 2;
-      if (rand > 0.95) level = 3;
-      if (rand > 0.98) level = 4;
-      
-      const date = new Date();
-      date.setDate(date.getDate() - (daysInYear - i));
-      
-      contributions.push({
-        level,
-        date: date.toISOString().split('T')[0]
-      });
+  const [stats, setStats] = useState<GitHubStats>({
+    repositories: 0,
+    pullRequests: 0,
+    stars: 0,
+    commits: 0,
+    issues: 0,
+  });
+  const [contributions, setContributions] = useState<ContributionDay[]>([]);
+
+  const username = "udithayeshmantha";  // change to your GitHub username
+  const GITHUB_TOKEN = "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"; // Replace with your GitHub personal access token
+
+  const fetchGitHubData = async () => {
+    if (!GITHUB_TOKEN) {
+      console.error('GitHub token is missing');
+      return;
     }
-    
-    return contributions;
+
+    const query = gql`
+      query($username: String!, $from: DateTime!, $to: DateTime!) {
+        user(login: $username) {
+          name
+          avatarUrl
+          bio
+          location
+          company
+          createdAt
+          websiteUrl
+          repositories {
+            totalCount
+          }
+          followers {
+            totalCount
+          }
+          contributionsCollection(from: $from, to: $to) {
+            contributionCalendar {
+              weeks {
+                contributionDays {
+                  date
+                  contributionCount
+                }
+              }
+            }
+            totalCommitContributions
+            pullRequestContributionsByRepository {
+              contributions {
+                totalCount
+              }
+            }
+            issueContributionsByRepository {
+              contributions {
+                totalCount
+              }
+            }
+          }
+        }
+      }
+    `;
+
+    const from = new Date(year, 0, 1).toISOString();
+    const to = new Date(year, 11, 31).toISOString();
+    const variables = { username, from, to };
+
+    try {
+      setLoading(true);
+      const result: { user: any } = await request('https://api.github.com/graphql', query, variables, {
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
+      });
+
+      const user = result.user;
+
+      setUserData(user);
+
+      const pullRequests = user.contributionsCollection.pullRequestContributionsByRepository.reduce(
+        (acc: number, repo: any) => acc + repo.contributions.totalCount,
+        0
+      );
+
+      const issues = user.contributionsCollection.issueContributionsByRepository.reduce(
+        (acc: number, repo: any) => acc + repo.contributions.totalCount,
+        0
+      );
+
+      setStats({
+        repositories: user.repositories.totalCount,
+        pullRequests,
+        stars: user.followers.totalCount,
+        commits: user.contributionsCollection.totalCommitContributions,
+        issues,
+      });
+
+      const contributionDays: ContributionDay[] = [];
+      user.contributionsCollection.contributionCalendar.weeks.forEach((week: any) => {
+        week.contributionDays.forEach((day: any) => {
+          const level = day.contributionCount === 0 ? 0
+            : day.contributionCount <= 2 ? 1
+            : day.contributionCount <= 5 ? 2
+            : day.contributionCount <= 10 ? 3
+            : 4;
+
+          contributionDays.push({
+            date: day.date,
+            level,
+          });
+        });
+      });
+
+      setContributions(contributionDays);
+    } catch (error) {
+      console.error('Error fetching GitHub data:', error);
+    } finally {
+      setLoading(false);
+    }
   };
-  
-  const mockContributions = generateMockContributions();
-  
+
+  useEffect(() => {
+    fetchGitHubData();
+  }, [year]);
+
   const getLevelColor = (level: number) => {
-    switch(level) {
+    switch (level) {
       case 1: return 'bg-electric-blue/30';
       case 2: return 'bg-electric-blue/60';
       case 3: return 'bg-electric-blue/80';
@@ -82,7 +148,7 @@ const GitHubPanel: React.FC = () => {
       default: return 'bg-muted';
     }
   };
-  
+
   if (loading) {
     return (
       <div className="w-full bg-deep-charcoal rounded-xl p-6 glass-effect glow-border flex items-center justify-center py-16">
@@ -94,7 +160,7 @@ const GitHubPanel: React.FC = () => {
       </div>
     );
   }
-  
+
   if (!userData) {
     return (
       <div className="w-full bg-deep-charcoal rounded-xl p-6 glass-effect glow-border">
@@ -110,29 +176,21 @@ const GitHubPanel: React.FC = () => {
       </div>
     );
   }
-  
-  const stats: GitHubStats = {
-    repositories: userData?.public_repos || 0,
-    pullRequests: 0, // Not available from basic API
-    stars: userData?.followers || 0,
-    commits: 0, // Not available from basic API
-    issues: 0, // Not available from basic API
-  };
-  
+
   return (
     <div className="w-full bg-deep-charcoal rounded-xl p-6 glass-effect glow-border">
       <div className="flex justify-between items-center mb-8">
         <div className="flex items-center gap-3">
-          <img 
-            src={userData.avatar_url} 
-            alt={`${username}'s avatar`} 
+          <img
+            src={userData.avatarUrl}
+            alt={`${username}'s avatar`}
             className="w-10 h-10 rounded-full border border-electric-blue/30"
           />
           <div>
             <h3 className="text-xl font-bold text-text-primary">{userData.name || username}</h3>
-            <a 
-              href={`https://github.com/${username}`} 
-              target="_blank" 
+            <a
+              href={`https://github.com/${username}`}
+              target="_blank"
               rel="noopener noreferrer"
               className="text-electric-blue hover:underline text-sm flex items-center gap-1"
             >
@@ -141,9 +199,9 @@ const GitHubPanel: React.FC = () => {
             </a>
           </div>
         </div>
-        
+
         <div className="relative">
-          <select 
+          <select
             className="bg-muted text-text-primary px-4 py-2 rounded-lg appearance-none pr-10 border border-electric-blue/30 focus:border-electric-blue focus:outline-none"
             value={year}
             onChange={(e) => setYear(parseInt(e.target.value))}
@@ -157,7 +215,7 @@ const GitHubPanel: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       <div className="flex justify-between items-center text-sm text-text-secondary mb-2">
         <span>Less</span>
         <div className="flex items-center gap-1">
@@ -169,14 +227,14 @@ const GitHubPanel: React.FC = () => {
         </div>
         <span>More</span>
       </div>
-      
+
       <div className="mb-8 w-full overflow-hidden">
         <div className="grid grid-cols-52 gap-1">
-          {Array.from({ length: 7 }).map((_, rowIndex) => (
-            <div key={`row-${rowIndex}`} className="flex flex-col gap-1">
-              {mockContributions.slice(rowIndex * 52, (rowIndex + 1) * 52).map((day, colIndex) => (
-                <div 
-                  key={`${rowIndex}-${colIndex}`}
+          {Array.from({ length: 52 }).map((_, colIndex) => (
+            <div key={`col-${colIndex}`} className="flex flex-col gap-1">
+              {contributions.slice(colIndex * 7, (colIndex + 1) * 7).map((day, rowIndex) => (
+                <div
+                  key={`${colIndex}-${rowIndex}`}
                   className={`w-3 h-3 rounded-sm ${getLevelColor(day.level)}`}
                   title={`${day.date}: ${day.level} contributions`}
                 ></div>
@@ -185,7 +243,7 @@ const GitHubPanel: React.FC = () => {
           ))}
         </div>
       </div>
-      
+
       <div className="p-4 mb-6 rounded-lg bg-muted/30 border border-electric-blue/10 text-text-secondary">
         <div className="flex items-center gap-2 text-text-primary mb-1">
           <span className="text-base font-medium">{userData.bio || 'UI/UX Designer & Developer'}</span>
@@ -203,10 +261,10 @@ const GitHubPanel: React.FC = () => {
           )}
           {userData.blog && (
             <div className="flex items-center gap-1">
-              <span>🔗</span> 
-              <a 
-                href={userData.blog.startsWith('http') ? userData.blog : `https://${userData.blog}`} 
-                target="_blank" 
+              <span>🔗</span>
+              <a
+                href={userData.blog.startsWith('http') ? userData.blog : `https://${userData.blog}`}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-electric-blue hover:underline"
               >
@@ -214,14 +272,14 @@ const GitHubPanel: React.FC = () => {
               </a>
             </div>
           )}
-          {userData.created_at && (
+          {userData.createdAt && (
             <div className="flex items-center gap-1">
-              <span>📅</span> Joined {new Date(userData.created_at).toLocaleDateString()}
+              <span>📅</span> Joined {new Date(userData.createdAt).toLocaleDateString()}
             </div>
           )}
         </div>
       </div>
-      
+
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-8">
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 rounded-full bg-deep-charcoal border border-electric-blue/20 flex items-center justify-center mb-2">
@@ -230,7 +288,7 @@ const GitHubPanel: React.FC = () => {
           <div className="text-2xl font-bold">{stats.repositories}</div>
           <div className="text-sm text-text-secondary">Repositories</div>
         </div>
-        
+
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 rounded-full bg-deep-charcoal border border-electric-blue/20 flex items-center justify-center mb-2">
             <GitPullRequest className="text-electric-blue" size={24} />
@@ -238,7 +296,7 @@ const GitHubPanel: React.FC = () => {
           <div className="text-2xl font-bold">{stats.pullRequests}</div>
           <div className="text-sm text-text-secondary">Pull Requests</div>
         </div>
-        
+
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 rounded-full bg-deep-charcoal border border-electric-blue/20 flex items-center justify-center mb-2">
             <Star className="text-electric-blue" size={24} />
@@ -246,7 +304,7 @@ const GitHubPanel: React.FC = () => {
           <div className="text-2xl font-bold">{stats.stars}+</div>
           <div className="text-sm text-text-secondary">Followers</div>
         </div>
-        
+
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 rounded-full bg-deep-charcoal border border-electric-blue/20 flex items-center justify-center mb-2">
             <GitCommit className="text-electric-blue" size={24} />
@@ -254,7 +312,7 @@ const GitHubPanel: React.FC = () => {
           <div className="text-2xl font-bold">{stats.commits}</div>
           <div className="text-sm text-text-secondary">Commits</div>
         </div>
-        
+
         <div className="flex flex-col items-center">
           <div className="w-12 h-12 rounded-full bg-deep-charcoal border border-electric-blue/20 flex items-center justify-center mb-2">
             <MessageSquare className="text-electric-blue" size={24} />
@@ -265,7 +323,7 @@ const GitHubPanel: React.FC = () => {
       </div>
 
       <div className="mt-6 flex justify-center">
-        <Button 
+        <Button
           className="bg-electric-blue hover:bg-electric-blue/80 text-white flex items-center gap-2"
           onClick={() => window.open(`https://github.com/${username}`, '_blank')}
         >
