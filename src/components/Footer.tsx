@@ -16,11 +16,8 @@ const Footer = () => {
           </div>
           
           <div className="text-text-secondary text-sm flex items-center">
-            <p>© {currentYear} Your Name. All rights reserved.</p>
-            <span className="mx-2">|</span>
-            <p className="flex items-center">
-              Made with <Heart className="mx-1 text-electric-blue" size={14} /> and code
-            </p>
+            <p>© {currentYear} Udith Ayeshmantha. All rights reserved.</p>
+            
           </div>
           
           <div className="mt-4 md:mt-0">
