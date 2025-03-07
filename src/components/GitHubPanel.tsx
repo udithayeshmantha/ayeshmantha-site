@@ -139,15 +139,15 @@ const GitHubPanel: React.FC = () => {
     fetchGitHubData();
   }, [year]);
 
-  const getLevelColor = (level: number) => {
-    switch (level) {
-      case 1: return 'bg-electric-blue/30';
-      case 2: return 'bg-electric-blue/60';
-      case 3: return 'bg-electric-blue/80';
-      case 4: return 'bg-electric-blue';
-      default: return 'bg-muted';
-    }
-  };
+const getLevelColor = (level: number) => {
+  switch (level) {
+    case 1: return 'bg-green-500 bg-opacity-25'; // Light green with 25% opacity
+    case 2: return 'bg-green-500 bg-opacity-50'; // Medium light green with 50% opacity
+    case 3: return 'bg-green-500 bg-opacity-75'; // Medium green with 75% opacity
+    case 4: return 'bg-green-500 bg-opacity-100'; // Dark green with 100% opacity
+    default: return 'bg-muted'; // No contributions
+  }
+};
 
   if (loading) {
     return (
@@ -216,7 +216,7 @@ const GitHubPanel: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center text-sm text-text-secondary mb-2">
+      <div className="flex justify-between items-center text-sm text-text-secondary mb-2 hidden md:block">
         <span>Less</span>
         <div className="flex items-center gap-1">
           <span className="w-3 h-3 bg-muted rounded-sm"></span>
@@ -228,14 +228,14 @@ const GitHubPanel: React.FC = () => {
         <span>More</span>
       </div>
 
-      <div className="mb-8 w-full overflow-hidden">
+      <div className="mb-8 w-full overflow-hidden hidden md:block">
         <div className="grid grid-cols-52 gap-1">
           {Array.from({ length: 52 }).map((_, colIndex) => (
             <div key={`col-${colIndex}`} className="flex flex-col gap-1">
               {contributions.slice(colIndex * 7, (colIndex + 1) * 7).map((day, rowIndex) => (
                 <div
                   key={`${colIndex}-${rowIndex}`}
-                  className={`w-3 h-3 rounded-sm ${getLevelColor(day.level)}`}
+                  className={`w-3 h-3 xl:h-5 xl:w-5 lg:w-4 lg:h-4 rounded-sm ${getLevelColor(day.level)}`}
                   title={`${day.date}: ${day.level} contributions`}
                 ></div>
               ))}
@@ -244,7 +244,7 @@ const GitHubPanel: React.FC = () => {
         </div>
       </div>
 
-      <div className="p-4 mb-6 rounded-lg bg-muted/30 border border-electric-blue/10 text-text-secondary">
+      {/* <div className="p-4 mb-6 rounded-lg bg-muted/30 border border-electric-blue/10 text-text-secondary">
         <div className="flex items-center gap-2 text-text-primary mb-1">
           <span className="text-base font-medium">{userData.bio || 'UI/UX Designer & Developer'}</span>
         </div>
@@ -278,7 +278,7 @@ const GitHubPanel: React.FC = () => {
             </div>
           )}
         </div>
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-8">
         <div className="flex flex-col items-center">

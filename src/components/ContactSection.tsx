@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram, Facebook, Figma } from 'lucide-react';
 
 const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -37,8 +37,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-text-secondary text-sm">Email</p>
-                    <a href="mailto:hello@example.com" className="text-text-primary hover:text-electric-blue transition-colors">
-                      hello@example.com
+                    <a href="mailto:udithayeshmantha@gmail.com" className="text-text-primary hover:text-electric-blue transition-colors">
+                    udithayeshmantha@gmail.com
                     </a>
                   </div>
                 </div>
@@ -49,8 +49,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-text-secondary text-sm">Phone</p>
-                    <a href="tel:+1234567890" className="text-text-primary hover:text-electric-blue transition-colors">
-                      +1 (234) 567-890
+                    <a href="tel:+94761693863" className="text-text-primary hover:text-electric-blue transition-colors">
+                      +94 76 169 3863
                     </a>
                   </div>
                 </div>
@@ -61,7 +61,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-text-secondary text-sm">Location</p>
-                    <p className="text-text-primary">San Francisco, CA</p>
+                    <p className="text-text-primary">Colombo, Sri Lanka</p>
                   </div>
                 </div>
               </div>
@@ -71,10 +71,11 @@ const ContactSection = () => {
                 <h4 className="text-lg font-medium mb-4 text-text-primary">Connect With Me</h4>
                 <div className="flex gap-4">
                   {[
-                    { icon: <Github size={18} />, href: "#", label: "GitHub" },
-                    { icon: <Linkedin size={18} />, href: "#", label: "LinkedIn" },
-                    { icon: <Twitter size={18} />, href: "#", label: "Twitter" },
-                    { icon: <Instagram size={18} />, href: "#", label: "Instagram" }
+                    { icon: <Github size={18} />, href: "https://github.com/udithayeshmantha", label: "GitHub" },
+                    { icon: <Figma size={18} />, href: "https://www.figma.com/@udithayeshmanth", label: "GitHub" },
+                    { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/in/udithayeshmantha/", label: "LinkedIn" },
+                    { icon: <Facebook size={18} />, href: "https://www.facebook.com/udith.ayeshmantha/", label: "Facebook" },
+                    { icon: <Instagram size={18} />, href: "https://www.instagram.com/udithayeshmantha/", label: "Instagram" }
                   ].map((social, index) => (
                     <a
                       key={index}
