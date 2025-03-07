@@ -8,6 +8,7 @@ import PortfolioSection from '@/components/PortfolioSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import GitHubPanel from '@/components/GitHubPanel';
 
 const Index = () => {
   return (
@@ -31,6 +32,21 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <SkillsSection />
+      
+      {/* GitHub Contribution Section */}
+      <section id="github" className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 glow-text">My GitHub Activity</h2>
+            <p className="text-text-secondary max-w-2xl mx-auto">
+              Track my open source contributions and development activity through GitHub's contribution graph.
+            </p>
+          </div>
+          
+          <GitHubPanel />
+        </div>
+      </section>
+      
       <PortfolioSection />
       <TestimonialsSection />
       <ContactSection />

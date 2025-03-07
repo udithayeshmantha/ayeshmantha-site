@@ -122,4 +122,14 @@
     box-shadow: 0 0 15px 5px rgba(74, 144, 226, 0.5);
     animation: float 4s infinite ease-in-out;
   }
+  
+  /* GitHub contribution graph grid */
+  .grid-cols-52 {
+    grid-template-columns: repeat(52, minmax(0, 1fr));
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
 }
