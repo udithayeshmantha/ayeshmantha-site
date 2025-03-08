@@ -4,7 +4,7 @@ import { Code, ExternalLink } from "lucide-react";
 import votelyImage from "../assest/votely.png"; // Import the image
 import zenauraImage from "../assest/zenaura.png"; // Import the image
 import moneymapImage from "../assest/moneymap.png"; // Import the image
-import VestaImage from "../assest/vesta.png"; // Import the image
+// import VestaImage from "../assest/vesta.png"; // Import the image
 
 // Project types
 type Technology = string;
@@ -60,7 +60,7 @@ const projectsData: Project[] = [
     title: "Vésta Clothing Site UI",
     category: "UI/UX Design",
     description: "A modern and visually appealing UI design for an e-commerce clothing store, created in Figma with a focus on user experience and aesthetics.",
-    image: VestaImage,
+    image: "VestaImage",
     technologies: ["Figma", "Photoshop", "Illustrator"],
     demoLink: "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui",
     codeLink: "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui"
