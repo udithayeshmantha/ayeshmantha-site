@@ -1,90 +1,90 @@
 
 import React from 'react';
-import { ArrowDown } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen relative flex items-center justify-center pt-16 px-6 overflow-hidden">
-      {/* Decorative elements with updated colors */}
-      <div className="circle-decoration w-72 h-72 top-20 left-20 bg-amber/20"></div>
-      <div className="circle-decoration w-96 h-96 bottom-20 right-10 opacity-10 bg-electric-gold"></div>
+    <section id="home" className="min-h-screen relative flex items-center px-6 overflow-hidden bg-deep-charcoal">
+      {/* Decorative elements - simplified circles */}
+      <div className="absolute top-20 right-20 w-24 h-24 rounded-full border border-electric-gold/30"></div>
+      <div className="absolute bottom-32 left-10 w-10 h-10 rounded-full bg-electric-gold/10"></div>
+      <div className="absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-electric-gold/5"></div>
       
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDQgTCA0IDAgTCAxNiAxMiBMIDEyIDE2IFogTSAxMiAwIEwgMTYgNCBMIDQgMTYgTCAwIDEyIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDE5MywgNywgMC4xKSI+PC9wYXRoPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSI+PC9yZWN0Pjwvc3ZnPg==')]"></div>
-      
-      <div className="max-w-7xl w-full mx-auto z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-6">
-        <div className="w-full lg:w-1/2 text-left">
-          <p className="text-electric-gold mb-2 font-medium">Hello, I'm Udith Ayeshmantha</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="text-white">I am a</span> <br />
-            <span className="bg-gradient-to-r from-electric-gold via-amber to-warm-gold bg-clip-text text-transparent">
-              UI/UX Designer
-            </span>
+      <div className="max-w-7xl w-full mx-auto z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+        {/* Left content */}
+        <div className="order-2 lg:order-1">
+          <h2 className="text-4xl font-bold mb-2">Hi,</h2>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">
+            I'm <span className="text-electric-gold">Udith</span>
           </h1>
+          <p className="text-2xl mb-8 text-white">UI/UX Designer</p>
           
-          <p className="text-xl text-text-secondary mt-6 max-w-xl">
-            I design and develop applications that are fast, accessible, 
-            and built with modern technologies to solve real-world problems.
-          </p>
-          
-          <div className="mt-10 space-x-4">
+          <div className="mb-10">
             <a 
               href="#contact" 
-              className="px-8 py-4 rounded-full bg-electric-gold text-deep-charcoal font-medium transition-all hover:bg-amber"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-md bg-electric-gold text-deep-charcoal font-medium transition-all hover:bg-amber"
             >
-              Get in touch
-            </a>
-            <a 
-              href="#projects" 
-              className="px-8 py-4 rounded-full bg-transparent border border-electric-gold text-electric-gold font-medium transition-all hover:border-amber hover:text-amber"
-            >
-              View my work
+              Hire Me
+              <ArrowRight size={18} />
             </a>
           </div>
           
-          <div className="flex space-x-6 mt-10">
-            <a href="#" className="text-text-secondary hover:text-electric-gold transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </a>
-            <a href="#" className="text-text-secondary hover:text-electric-gold transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            </a>
-            <a href="#" className="text-text-secondary hover:text-electric-gold transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="#" className="text-text-secondary hover:text-electric-gold transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-            </a>
+          <div className="flex items-center gap-3 mt-16">
+            <div className="w-8 h-8 rounded-full bg-electric-gold/20 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-electric-gold"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </div>
+            <span className="text-text-secondary text-sm">www.github.com/udith</span>
           </div>
         </div>
         
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-          <div className="relative">
-            {/* Profile image with gold accents */}
-            <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-electric-gold relative">
-              <img
-                src="src\assest\pp.jpg"
-                alt="Your Photo"
-                className="w-full h-full object-cover"
-              />
-              {/* Amber overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal/80 to-transparent"></div>
+        {/* Right content */}
+        <div className="order-1 lg:order-2">
+          <div className="relative w-full max-w-md mx-auto lg:ml-auto">
+            <div className="absolute right-10 top-10 text-right">
+              <p className="text-electric-gold text-sm">Expert on</p>
+              <h3 className="text-xl font-bold">Based in Sri Lanka</h3>
+              <p className="text-text-secondary mt-1">UI/UX designer and developer</p>
+              
+              <div className="mt-8 max-w-xs">
+                <p className="text-text-primary">
+                  Hey are looking for designer to build
+                  your brand and grow your business?
+                  let's shake hands with me.
+                </p>
+              </div>
+              
+              <div className="mt-6">
+                <a 
+                  href="#" 
+                  className="text-electric-gold border-b border-electric-gold pb-1 inline-flex items-center gap-1"
+                >
+                  Download CV
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+              </div>
             </div>
             
-            {/* Decorative rings with updated colors */}
-            <div className="absolute inset-0 -m-4 border-2 border-dashed border-electric-gold/30 rounded-2xl"></div>
-            <div className="absolute inset-0 -m-8 border border-amber/20 rounded-2xl"></div>
+            <div className="relative z-10">
+              <img
+                src="src/assest/pp.jpg"
+                alt="Profile"
+                className="w-full h-auto rounded-lg object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
       
-      {/* Scroll down indicator with updated colors */}
-      <a 
-        href="#about" 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-text-secondary hover:text-electric-gold transition-colors"
-      >
-        <span className="mb-2 text-sm">Scroll Down</span>
-        <ArrowDown size={20} />
-      </a>
+      {/* Chat button */}
+      <div className="absolute bottom-8 right-8">
+        <a 
+          href="#contact" 
+          className="flex items-center gap-2 bg-deep-charcoal border border-muted px-4 py-2 rounded-full text-sm hover:border-electric-gold transition-colors"
+        >
+          Let's Chat
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-electric-gold"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+      </div>
     </section>
   );
 };
