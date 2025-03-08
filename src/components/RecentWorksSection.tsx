@@ -1,6 +1,7 @@
-
+// filepath: c:\Users\udith\Desktop\GITHUB Project\portfolio-site\src\components\RecentWorksSection.tsx
 import React, { useState } from 'react';
 import { Code, ExternalLink } from 'lucide-react';
+import votelyImage from "../assest/votely.png"; // Import the image
 
 // Project types
 type Technology = string;
@@ -20,13 +21,13 @@ interface Project {
 const projectsData: Project[] = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "Votely E-Voting System",
     category: "Web",
-    description: "A full-featured e-commerce platform with payment processing, user authentication, and product management.",
-    image: "bg-gradient-to-br from-amber/40 to-electric-gold/30",
+    description: "A secure and user-friendly electronic voting system ensuring transparency, integrity, and ease of access for voters and administrators.",
+    image: votelyImage, // Use the imported image
     technologies: ["React", "Node.js", "MongoDB"],
-    demoLink: "#",
-    codeLink: "#"
+    demoLink: "https://github.com/udithayeshmantha/Votely-E-voting-system",
+    codeLink: "https://github.com/udithayeshmantha/Votely-E-voting-system"
   },
   {
     id: 2,
@@ -83,16 +84,16 @@ const categories = ["All", "Web", "Mobile", "Design"];
 
 const RecentWorksSection = () => {
   const [filter, setFilter] = useState("All");
-  
+
   const filteredProjects = filter === "All"
     ? projectsData
     : projectsData.filter(project => project.category === filter);
-  
+
   return (
     <section id="projects" className="py-20 px-6 relative">
       {/* Decorative element */}
       <div className="circle-decoration w-96 h-96 top-20 right-0 bg-amber/20"></div>
-      
+
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1 bg-electric-gold/10 rounded-full mb-4">
@@ -104,7 +105,7 @@ const RecentWorksSection = () => {
             development, and design work.
           </p>
         </div>
-        
+
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category) => (
@@ -121,7 +122,7 @@ const RecentWorksSection = () => {
             </button>
           ))}
         </div>
-        
+
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
@@ -129,10 +130,14 @@ const RecentWorksSection = () => {
               {/* Project Image/Preview */}
               <div className={`aspect-video rounded-t-xl overflow-hidden ${project.image}`}>
                 <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-white/50 text-sm">Project Preview</span>
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="object-cover w-full h-full transition-transform transform group-hover:scale-105"
+                  />
                 </div>
               </div>
-              
+
               {/* Project Details */}
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
@@ -143,11 +148,11 @@ const RecentWorksSection = () => {
                     {project.category}
                   </span>
                 </div>
-                
+
                 <p className="text-text-secondary text-sm mb-4 line-clamp-2">
                   {project.description}
                 </p>
-                
+
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, index) => (
@@ -159,7 +164,7 @@ const RecentWorksSection = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 {/* Action Links */}
                 <div className="flex justify-between">
                   <a 
@@ -169,7 +174,7 @@ const RecentWorksSection = () => {
                     <ExternalLink size={14} />
                     <span>Live Demo</span>
                   </a>
-                  
+
                   {project.codeLink && (
                     <a 
                       href={project.codeLink} 
@@ -184,7 +189,7 @@ const RecentWorksSection = () => {
             </div>
           ))}
         </div>
-        
+
         {/* View All Projects Button */}
         <div className="text-center mt-12">
           <a 
