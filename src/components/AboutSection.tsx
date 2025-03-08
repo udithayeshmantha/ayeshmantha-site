@@ -1,3 +1,4 @@
+
 import React from "react";
 import { User, LayoutGrid, Code, Lightbulb, Heart } from "lucide-react";
 
@@ -5,13 +6,16 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-20 px-6 relative">
       {/* Decorative element */}
-      <div className="circle-decoration w-96 h-96 -top-48 right-0 bg-violet/20"></div>
+      <div className="circle-decoration w-96 h-96 -top-48 right-0 bg-electric-gold/20"></div>
 
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 glow-text inline-block relative">
-            About Me
-            <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-electric-blue to-transparent"></span>
+          <div className="inline-block px-4 py-1 bg-electric-gold/10 rounded-full mb-4">
+            <span className="text-electric-gold font-medium">About Me</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Get to know more about me
+            <span className="block h-1 w-20 bg-electric-gold mx-auto mt-4"></span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
             Get to know more about me, my background, and what drives my passion
@@ -46,7 +50,7 @@ const AboutSection = () => {
                   key={index}
                   className="flex items-center space-x-3 text-text-primary group"
                 >
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center bg-muted group-hover:bg-electric-blue/20 transition-colors duration-300">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center bg-electric-gold/20 text-electric-gold transition-colors duration-300">
                     {item.icon}
                   </div>
                   <span>{item.text}</span>
@@ -56,23 +60,20 @@ const AboutSection = () => {
           </div>
 
           <div className="order-1 lg:order-2 relative">
-            <div className="relative z-10 border border-muted rounded-2xl p-1 bg-deep-charcoal/50 backdrop-blur-sm overflow-hidden group transition-all duration-500 hover:shadow-neon-blue">
+            <div className="relative z-10 border border-electric-gold/30 rounded-2xl p-1 bg-deep-charcoal/50 backdrop-blur-sm overflow-hidden transition-all duration-500">
               <div className="aspect-square rounded-2xl overflow-hidden">
-                {/* Replace with your actual about image */}
-                <div className="w-full h-full bg-gradient-to-bl from-electric-blue/40 to-violet/40 flex items-center justify-center text-text-primary">
-                  <img
-                    src="src\assest\aboutme.jpg" // Replace with the actual path to your photo
-                    alt="Your Photo"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <img
+                  src="src/assest/aboutme.jpg"
+                  alt="About Me"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-deep-charcoal to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
 
             {/* Decorative lines */}
-            <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-electric-blue opacity-70"></div>
-            <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-violet opacity-70"></div>
+            <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-electric-gold opacity-70"></div>
+            <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-amber opacity-70"></div>
           </div>
         </div>
       </div>

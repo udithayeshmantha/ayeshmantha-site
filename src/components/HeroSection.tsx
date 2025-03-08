@@ -6,15 +6,15 @@ const HeroSection = () => {
   return (
     <section id="home" className="min-h-screen relative flex items-center justify-center pt-16 px-6 overflow-hidden">
       {/* Decorative elements with updated colors */}
-      <div className="circle-decoration w-72 h-72 top-20 left-20 animate-pulse-glow bg-amber/20"></div>
-      <div className="circle-decoration w-96 h-96 bottom-20 right-10 opacity-10 bg-electric-gold animate-pulse-glow"></div>
+      <div className="circle-decoration w-72 h-72 top-20 left-20 bg-amber/20"></div>
+      <div className="circle-decoration w-96 h-96 bottom-20 right-10 opacity-10 bg-electric-gold"></div>
       
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDQgTCA0IDAgTCAxNiAxMiBMIDEyIDE2IFogTSAxMiAwIEwgMTYgNCBMIDQgMTYgTCAwIDEyIFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsIDE5MywgNywgMC4xKSI+PC9wYXRoPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSI+PC9yZWN0Pjwvc3ZnPg==')]"></div>
       
       <div className="max-w-7xl w-full mx-auto z-10 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-6">
         <div className="w-full lg:w-1/2 text-left">
           <p className="text-electric-gold mb-2 font-medium">Hello, I'm Udith Ayeshmantha</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight animate-glow-text">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
             <span className="text-white">I am a</span> <br />
             <span className="bg-gradient-to-r from-electric-gold via-amber to-warm-gold bg-clip-text text-transparent">
               UI/UX Designer
@@ -29,13 +29,13 @@ const HeroSection = () => {
           <div className="mt-10 space-x-4">
             <a 
               href="#contact" 
-              className="px-8 py-4 rounded-full bg-electric-gold text-deep-charcoal font-medium transition-all hover:shadow-neon-gold"
+              className="px-8 py-4 rounded-full bg-electric-gold text-deep-charcoal font-medium transition-all hover:bg-amber"
             >
               Get in touch
             </a>
             <a 
               href="#projects" 
-              className="px-8 py-4 rounded-full bg-transparent border border-electric-gold text-electric-gold font-medium transition-all hover:shadow-neon-gold"
+              className="px-8 py-4 rounded-full bg-transparent border border-electric-gold text-electric-gold font-medium transition-all hover:border-amber hover:text-amber"
             >
               View my work
             </a>
@@ -60,7 +60,7 @@ const HeroSection = () => {
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
           <div className="relative">
             {/* Profile image with gold accents */}
-            <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-electric-gold animate-pulse-glow relative">
+            <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-electric-gold relative">
               <img
                 src="src\assest\pp.jpg"
                 alt="Your Photo"
@@ -71,7 +71,7 @@ const HeroSection = () => {
             </div>
             
             {/* Decorative rings with updated colors */}
-            <div className="absolute inset-0 -m-4 border-2 border-dashed border-electric-gold/30 rounded-2xl animate-rotate-slow"></div>
+            <div className="absolute inset-0 -m-4 border-2 border-dashed border-electric-gold/30 rounded-2xl"></div>
             <div className="absolute inset-0 -m-8 border border-amber/20 rounded-2xl"></div>
           </div>
         </div>
@@ -83,7 +83,7 @@ const HeroSection = () => {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-text-secondary hover:text-electric-gold transition-colors"
       >
         <span className="mb-2 text-sm">Scroll Down</span>
-        <ArrowDown className="animate-bounce" size={20} />
+        <ArrowDown size={20} />
       </a>
     </section>
   );

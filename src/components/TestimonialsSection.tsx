@@ -41,14 +41,17 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-20 px-6 relative bg-gradient-to-b from-black to-deep-charcoal">
       {/* Decorative elements */}
-      <div className="circle-decoration w-72 h-72 top-20 left-10 bg-electric-blue/10"></div>
-      <div className="circle-decoration w-96 h-96 bottom-10 right-10 bg-violet/10"></div>
+      <div className="circle-decoration w-72 h-72 top-20 left-10 bg-electric-gold/10"></div>
+      <div className="circle-decoration w-96 h-96 bottom-10 right-10 bg-amber/10"></div>
       
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 glow-text inline-block relative">
+          <div className="inline-block px-4 py-1 bg-electric-gold/10 rounded-full mb-4">
+            <span className="text-electric-gold font-medium">Testimonials</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Client Testimonials
-            <span className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-electric-blue to-transparent"></span>
+            <span className="block h-1 w-20 bg-electric-gold mx-auto mt-4"></span>
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
             What my clients say about my work and collaboration
@@ -57,9 +60,9 @@ const TestimonialsSection = () => {
         
         <div className="relative">
           {/* Testimonial Card */}
-          <div className="bg-muted/30 backdrop-blur-md rounded-2xl p-8 border border-muted shadow-lg animate-float glow-border">
+          <div className="bg-muted/20 backdrop-blur-md rounded-2xl p-8 border border-electric-gold/10 hover:border-electric-gold/30 transition-all shadow-lg">
             <div className="flex items-start gap-4 mb-6">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-electric-blue to-violet flex items-center justify-center text-white font-medium flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-electric-gold to-amber flex items-center justify-center text-deep-charcoal font-medium flex-shrink-0">
                 {testimonials[activeIndex].avatar}
               </div>
               <div>
@@ -70,7 +73,7 @@ const TestimonialsSection = () => {
                   {testimonials[activeIndex].role}
                 </p>
               </div>
-              <Quote className="ml-auto text-electric-blue opacity-50" size={32} />
+              <Quote className="ml-auto text-electric-gold opacity-50" size={32} />
             </div>
             
             <p className="text-text-primary text-lg italic">
@@ -82,7 +85,7 @@ const TestimonialsSection = () => {
           <div className="flex justify-center mt-8 gap-4">
             <button 
               onClick={prevTestimonial}
-              className="w-10 h-10 rounded-full border border-muted bg-muted/50 flex items-center justify-center text-text-primary hover:text-electric-blue hover:border-electric-blue transition-all"
+              className="w-10 h-10 rounded-full border border-muted bg-muted/50 flex items-center justify-center text-text-primary hover:text-electric-gold hover:border-electric-gold transition-all"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={20} />
@@ -96,7 +99,7 @@ const TestimonialsSection = () => {
                   onClick={() => setActiveIndex(index)}
                   className={`w-2.5 h-2.5 rounded-full transition-all ${
                     index === activeIndex
-                      ? "bg-electric-blue w-8"
+                      ? "bg-electric-gold w-8"
                       : "bg-muted hover:bg-text-secondary"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
@@ -106,7 +109,7 @@ const TestimonialsSection = () => {
             
             <button 
               onClick={nextTestimonial}
-              className="w-10 h-10 rounded-full border border-muted bg-muted/50 flex items-center justify-center text-text-primary hover:text-electric-blue hover:border-electric-blue transition-all"
+              className="w-10 h-10 rounded-full border border-muted bg-muted/50 flex items-center justify-center text-text-primary hover:text-electric-gold hover:border-electric-gold transition-all"
               aria-label="Next testimonial"
             >
               <ChevronRight size={20} />
