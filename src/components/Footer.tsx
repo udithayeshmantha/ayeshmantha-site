@@ -11,22 +11,22 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
             <a href="#" className="text-2xl font-bold text-text-primary">
-              <span className="text-electric-blue">Port</span>folio
+              <span className="text-electric-gold">Port</span>folio
             </a>
           </div>
           
           <div className="text-text-secondary text-sm flex items-center">
             <p>© {currentYear} Udith Ayeshmantha. All rights reserved.</p>
-            
+            <Heart size={16} className="mx-2 text-electric-gold" />
           </div>
           
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">
-              {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+              {['Home', 'About', 'Experience', 'Recent Works', 'Contact'].map((item) => (
                 <li key={item}>
                   <a 
-                    href={`#${item.toLowerCase()}`} 
-                    className="text-sm text-text-secondary hover:text-electric-blue transition-colors"
+                    href={`#${item.toLowerCase().replace(' ', '-')}`} 
+                    className="text-sm text-text-secondary hover:text-electric-gold transition-colors"
                   >
                     {item}
                   </a>
