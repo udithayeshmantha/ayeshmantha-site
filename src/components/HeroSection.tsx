@@ -129,7 +129,7 @@ const HeroSection = () => {
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
           <div className="relative">
             {/* Profile image with gold accents */}
-            <div className="w-80 h-80 md:w-96 md:h-96 rounded-2xl overflow-hidden border-4 border-white relative">
+            <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden relative">
               <img
                 src="src\assest\pp.jpg"
                 alt="Your Photo"

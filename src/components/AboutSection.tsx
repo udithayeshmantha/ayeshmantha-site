@@ -60,8 +60,8 @@ const AboutSection = () => {
           </div>
 
           <div className="order-1 lg:order-2 relative">
-            <div className="relative z-10 border border-electric-gold/30 rounded-2xl p-1 bg-deep-charcoal/50 backdrop-blur-sm overflow-hidden transition-all duration-500">
-              <div className="aspect-square rounded-2xl overflow-hidden">
+            <div className="relative z-10 border border-electric-gold/30 rounded-full p-1 bg-deep-charcoal/50 backdrop-blur-sm overflow-hidden transition-all duration-500">
+              <div className="aspect-square rounded-full overflow-hidden">
                 <img
                   src="src/assest/aboutme.jpg"
                   alt="About Me"

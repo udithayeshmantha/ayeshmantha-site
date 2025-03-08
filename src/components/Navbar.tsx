@@ -23,12 +23,13 @@ const Navbar = () => {
     )}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#" className="text-2xl font-bold text-text-primary">
-          <span className="text-electric-gold">Port</span>folio
+          <img src="src\assest\logo.png" alt="Logo" className="inline-block h-8 mr-2" />
+          
         </a>
         
         {/* Desktop Menu - Updated with new sections */}
         <ul className="hidden md:flex space-x-8">
-          {['Home', 'About', 'Skills', 'Experience', 'Recent Works', 'Projects', 'GitHub', 'Contact'].map((item) => (
+          {['Home', 'Projects', 'Experience', 'Skills', 'GitHub', 'Contact'].map((item) => (
             <li key={item}>
               <a 
                 href={`#${item.toLowerCase().replace(' ', '-')}`} 
@@ -54,7 +55,7 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 right-0 bg-deep-charcoal/95 backdrop-blur-lg border-t border-muted p-4 shadow-xl animate-fade-in">
           <ul className="space-y-4 px-2">
-            {['Home', 'About', 'Skills', 'Experience', 'Recent Works', 'Projects', 'GitHub', 'Contact'].map((item) => (
+            {['Home', 'Projects', 'Experience', 'Skills', 'GitHub', 'Contact'].map((item) => (
               <li key={item}>
                 <a 
                   href={`#${item.toLowerCase().replace(' ', '-')}`} 

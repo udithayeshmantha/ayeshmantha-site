@@ -32,10 +32,12 @@ const Index = () => {
       
       <Navbar />
       <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
+      {/* <AboutSection /> */}
       <RecentWorksSection />
+      <ExperienceSection />
+      <SkillsSection />
+      
+      
       
       {/* GitHub Contribution Section */}
       <section id="github" className="py-20 px-6">
@@ -54,8 +56,8 @@ const Index = () => {
         </div>
       </section>
       
-      <PortfolioSection />
-      <TestimonialsSection />
+      {/* <PortfolioSection /> */}
+      {/* <TestimonialsSection /> */}
       <ContactSection />
       <Footer />
     </div>
