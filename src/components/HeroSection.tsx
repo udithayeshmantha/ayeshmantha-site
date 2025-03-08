@@ -31,13 +31,13 @@ const HeroSection = () => {
           </div>
           
           {/* Center column with profile image */}
-          <div className="lg:col-span-1 flex justify-center">
+          <div className="lg:col-span-1 flex justify-center ">
             <div className="relative">
-              <div className="w-64 h-auto rounded-2xl overflow-hidden border-2 border-electric-gold relative">
+              <div className="w-64 h-auto rounded-2xl overflow-hidden relative">
                 <img
-                  src="src/assest/pp.jpg"
+                  src="src/assest/pp.png"
                   alt="Your Photo"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover "
                 />
               </div>
               {/* Decorative shapes */}
