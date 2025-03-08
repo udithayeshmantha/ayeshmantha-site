@@ -49,11 +49,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors
+				// Custom colors updated to match the amber/gold theme from images
 				'deep-charcoal': '#0D0D0D',
-				'electric-blue': '#4A90E2',
-				'violet': '#8B5CF6',
-				'neon-green': '#39FF14',
+				'electric-gold': '#FFC107', // Changed from blue to gold
+				'amber': '#FF9800', // New amber color
+				'warm-gold': '#FFD700', // New warm gold
+				'neon-gold': '#FFD54F', // Changed from green to gold
 				'text-primary': '#EAEAEA',
 				'text-secondary': '#B8B8B8',
 			},
@@ -116,9 +117,9 @@ export default {
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 			},
 			boxShadow: {
-				'neon-blue': '0 0 5px #4A90E2, 0 0 15px rgba(74, 144, 226, 0.5)',
-				'neon-purple': '0 0 5px #8B5CF6, 0 0 15px rgba(139, 92, 246, 0.5)',
-				'neon-green': '0 0 5px #39FF14, 0 0 15px rgba(57, 255, 20, 0.5)',
+				'neon-gold': '0 0 5px #FFC107, 0 0 15px rgba(255, 193, 7, 0.5)', // Changed from blue to gold
+				'neon-amber': '0 0 5px #FF9800, 0 0 15px rgba(255, 152, 0, 0.5)', // Changed from purple to amber
+				'neon-yellow': '0 0 5px #FFD700, 0 0 15px rgba(255, 215, 0, 0.5)', // Changed from green to yellow
 			}
 		}
 	},
