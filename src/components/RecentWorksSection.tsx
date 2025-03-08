@@ -89,7 +89,7 @@ const RecentWorksSection = () => {
     : projectsData.filter(project => project.category === filter);
   
   return (
-    <section id="recent-works" className="py-20 px-6 relative">
+    <section id="projects" className="py-20 px-6 relative">
       {/* Decorative element */}
       <div className="circle-decoration w-96 h-96 top-20 right-0 bg-amber/20"></div>
       
