@@ -1,6 +1,20 @@
-import React, { useRef } from 'react';
-import emailjs from 'emailjs-com';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram, Facebook, Figma } from 'lucide-react';
+// filepath: c:\Users\udith\Desktop\GITHUB Project\portfolio-site\src\components\ContactSection.tsx
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+  Instagram,
+  Facebook,
+  Figma,
+} from "lucide-react";
 
 const ContactSection = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -9,19 +23,31 @@ const ContactSection = () => {
     e.preventDefault();
 
     if (form.current) {
-      emailjs.sendForm('service_14meyaq', 'template_qanfu6q', form.current, 'b28tmtkrPMIh5DDsA')
-        .then((result) => {
-          console.log('Form submitted', result.text);
-        }, (error) => {
-          console.log('Form submission error', error.text);
-        });
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+          form.current,
+          import.meta.env.VITE_EMAILJS_USER_ID!
+        )
+        .then(
+          (result) => {
+            toast.success("Form submitted successfully!");
+            console.log("Form submitted", result.text);
+          },
+          (error) => {
+            toast.error("Form submission error. Please try again.");
+            console.log("Form submission error", error.text);
+          }
+        );
     }
   };
 
   return (
     <section id="contact" className="py-20 px-6 relative">
+      <ToastContainer />
       <div className="circle-decoration w-80 h-80 top-20 right-20 bg-amber/10"></div>
-      
+
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-1 bg-electric-gold/10 rounded-full mb-4">
@@ -35,13 +61,15 @@ const ContactSection = () => {
             Have a project in mind or want to collaborate? Let's talk!
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <div className="order-2 lg:order-1">
             <div className="bg-muted/20 backdrop-blur-sm rounded-xl p-8 border border-electric-gold/10 hover:border-electric-gold/30 transition-all h-full">
-              <h3 className="text-2xl font-semibold mb-6 text-text-primary">Contact Information</h3>
-              
+              <h3 className="text-2xl font-semibold mb-6 text-text-primary">
+                Contact Information
+              </h3>
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-electric-gold/20 flex items-center justify-center text-electric-gold">
@@ -49,24 +77,30 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-text-secondary text-sm">Email</p>
-                    <a href="mailto:udithayeshmantha@gmail.com" className="text-text-primary hover:text-electric-gold transition-colors">
-                    udithayeshmantha@gmail.com
+                    <a
+                      href="mailto:udithayeshmantha@gmail.com"
+                      className="text-text-primary hover:text-electric-gold transition-colors"
+                    >
+                      udithayeshmantha@gmail.com
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-electric-gold/20 flex items-center justify-center text-electric-gold">
                     <Phone size={18} />
                   </div>
                   <div>
                     <p className="text-text-secondary text-sm">Phone</p>
-                    <a href="tel:+94761693863" className="text-text-primary hover:text-electric-gold transition-colors">
+                    <a
+                      href="tel:+94761693863"
+                      className="text-text-primary hover:text-electric-gold transition-colors"
+                    >
                       +94 76 169 3863
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-full bg-electric-gold/20 flex items-center justify-center text-electric-gold">
                     <MapPin size={18} />
@@ -77,17 +111,39 @@ const ContactSection = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Social Links */}
               <div className="mt-10">
-                <h4 className="text-lg font-medium mb-4 text-text-primary">Connect With Me</h4>
+                <h4 className="text-lg font-medium mb-4 text-text-primary">
+                  Connect With Me
+                </h4>
                 <div className="flex gap-4">
                   {[
-                    { icon: <Github size={18} />, href: "https://github.com/udithayeshmantha", label: "GitHub" },
-                    { icon: <Figma size={18} />, href: "https://www.figma.com/@udithayeshmanth", label: "Figma" },
-                    { icon: <Linkedin size={18} />, href: "https://www.linkedin.com/in/udithayeshmantha/", label: "LinkedIn" },
-                    { icon: <Facebook size={18} />, href: "https://www.facebook.com/udith.ayeshmantha/", label: "Facebook" },
-                    { icon: <Instagram size={18} />, href: "https://www.instagram.com/udithayeshmantha/", label: "Instagram" }
+                    {
+                      icon: <Github size={18} />,
+                      href: "https://github.com/udithayeshmantha",
+                      label: "GitHub",
+                    },
+                    {
+                      icon: <Figma size={18} />,
+                      href: "https://www.figma.com/@udithayeshmanth",
+                      label: "Figma",
+                    },
+                    {
+                      icon: <Linkedin size={18} />,
+                      href: "https://www.linkedin.com/in/udithayeshmantha/",
+                      label: "LinkedIn",
+                    },
+                    {
+                      icon: <Facebook size={18} />,
+                      href: "https://www.facebook.com/udith.ayeshmantha/",
+                      label: "Facebook",
+                    },
+                    {
+                      icon: <Instagram size={18} />,
+                      href: "https://www.instagram.com/udithayeshmantha/",
+                      label: "Instagram",
+                    },
                   ].map((social, index) => (
                     <a
                       key={index}
@@ -102,13 +158,16 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Contact Form */}
           <div className="order-1 lg:order-2">
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-text-primary mb-2 text-sm">
+                  <label
+                    htmlFor="name"
+                    className="block text-text-primary mb-2 text-sm"
+                  >
                     Your Name
                   </label>
                   <input
@@ -120,9 +179,12 @@ const ContactSection = () => {
                     required
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className="block text-text-primary mb-2 text-sm">
+                  <label
+                    htmlFor="email"
+                    className="block text-text-primary mb-2 text-sm"
+                  >
                     Your Email
                   </label>
                   <input
@@ -135,9 +197,12 @@ const ContactSection = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
-                <label htmlFor="subject" className="block text-text-primary mb-2 text-sm">
+                <label
+                  htmlFor="subject"
+                  className="block text-text-primary mb-2 text-sm"
+                >
                   Subject
                 </label>
                 <input
@@ -149,9 +214,12 @@ const ContactSection = () => {
                   required
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="message" className="block text-text-primary mb-2 text-sm">
+                <label
+                  htmlFor="message"
+                  className="block text-text-primary mb-2 text-sm"
+                >
                   Your Message
                 </label>
                 <textarea
@@ -163,13 +231,16 @@ const ContactSection = () => {
                   required
                 ></textarea>
               </div>
-              
+
               <button
                 type="submit"
                 className="px-6 py-3 bg-electric-gold text-deep-charcoal rounded-lg hover:bg-amber transition-all flex items-center gap-2 group"
               >
                 <span>Send Message</span>
-                <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                <Send
+                  size={18}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </button>
             </form>
           </div>
