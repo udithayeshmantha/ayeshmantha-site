@@ -1,14 +1,23 @@
-
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from 'emailjs-com';
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, Instagram, Facebook, Figma } from 'lucide-react';
 
 const ContactSection = () => {
+  const form = useRef<HTMLFormElement>(null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted');
+
+    if (form.current) {
+      emailjs.sendForm('service_14meyaq', 'template_qanfu6q', form.current, 'b28tmtkrPMIh5DDsA')
+        .then((result) => {
+          console.log('Form submitted', result.text);
+        }, (error) => {
+          console.log('Form submission error', error.text);
+        });
+    }
   };
-  
+
   return (
     <section id="contact" className="py-20 px-6 relative">
       <div className="circle-decoration w-80 h-80 top-20 right-20 bg-amber/10"></div>
@@ -96,7 +105,7 @@ const ContactSection = () => {
           
           {/* Contact Form */}
           <div className="order-1 lg:order-2">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-text-primary mb-2 text-sm">

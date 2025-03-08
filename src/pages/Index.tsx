@@ -12,6 +12,7 @@ import GitHubPanel from '@/components/GitHubPanel';
 import ExperienceSection from '@/components/ExperienceSection';
 import RecentWorksSection from '@/components/RecentWorksSection';
 
+
 const Index = () => {
   return (
     <div className="relative min-h-screen">
