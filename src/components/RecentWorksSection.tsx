@@ -1,7 +1,10 @@
 // filepath: c:\Users\udith\Desktop\GITHUB Project\portfolio-site\src\components\RecentWorksSection.tsx
-import React, { useState } from 'react';
-import { Code, ExternalLink } from 'lucide-react';
+import React, { useState } from "react";
+import { Code, ExternalLink } from "lucide-react";
 import votelyImage from "../assest/votely.png"; // Import the image
+import zenauraImage from "../assest/zenaura.png"; // Import the image
+import moneymapImage from "../assest/moneymap.png"; // Import the image
+import VestaImage from "../assest/vesta.png"; // Import the image
 
 // Project types
 type Technology = string;
@@ -23,71 +26,79 @@ const projectsData: Project[] = [
     id: 1,
     title: "Votely E-Voting System",
     category: "Web",
-    description: "A secure and user-friendly electronic voting system ensuring transparency, integrity, and ease of access for voters and administrators.",
+    description:
+      "A secure and user-friendly electronic voting system ensuring transparency, integrity, and ease of access for voters and administrators.",
     image: votelyImage, // Use the imported image
     technologies: ["React", "Node.js", "MongoDB"],
     demoLink: "https://github.com/udithayeshmantha/Votely-E-voting-system",
-    codeLink: "https://github.com/udithayeshmantha/Votely-E-voting-system"
+    codeLink: "https://github.com/udithayeshmantha/Votely-E-voting-system",
   },
   {
     id: 2,
-    title: "Task Management App",
+    title: "Zenaura - Medication Music App",
     category: "Mobile",
-    description: "A productivity application to help teams organize tasks, track progress, and manage projects efficiently.",
-    image: "bg-gradient-to-br from-electric-gold/40 to-amber/30",
-    technologies: ["TypeScript", "React", "Firebase"],
-    demoLink: "#",
-    codeLink: "#"
+    description:
+      "A Flutter-based mobile app that combines medication reminders with personalized music playlists for a relaxing and therapeutic experience.",
+    image: zenauraImage,
+    technologies: ["Flutter", "Dart", "Firebase"],
+    demoLink: "https://github.com/udithayeshmantha/Zenaura",
+    codeLink: "https://github.com/udithayeshmantha/Zenaura",
   },
   {
     id: 3,
-    title: "Finance Dashboard",
-    category: "Web",
-    description: "Interactive dashboard for financial data visualization and analysis with real-time updates.",
-    image: "bg-gradient-to-br from-warm-gold/30 to-electric-gold/30",
-    technologies: ["React", "D3.js", "TailwindCSS"],
-    demoLink: "#"
+    title: "MoneyMap - Money Tracking App",
+    category: "Mobile",
+    description:
+      "A Flutter-based money tracking app that helps users manage their income and expenses effectively with real-time balance calculations and Firebase integration.",
+    image: moneymapImage,
+    technologies: ["Flutter", "Firebase Firestore", "Firebase Authentication"],
+    demoLink: "#",
+    codeLink: "https://github.com/udithayeshmantha/MoneyMap-Moneytracking-App",
   },
   {
     id: 4,
-    title: "Health & Fitness App",
-    category: "Mobile",
-    description: "Mobile application for tracking fitness goals, nutrition planning, and workout routines.",
-    image: "bg-gradient-to-br from-electric-gold/30 to-neon-gold/30",
-    technologies: ["React Native", "Redux", "Firebase"],
-    demoLink: "#",
-    codeLink: "#"
+    title: "Vésta Clothing Site UI",
+    category: "UI/UX Design",
+    description: "A modern and visually appealing UI design for an e-commerce clothing store, created in Figma with a focus on user experience and aesthetics.",
+    image: VestaImage,
+    technologies: ["Figma", "Photoshop", "Illustrator"],
+    demoLink: "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui",
+    codeLink: "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui"
   },
+  
   {
     id: 5,
     title: "Travel Companion",
     category: "Design",
-    description: "UI/UX design for a travel app with itinerary planning, booking features, and local recommendations.",
+    description:
+      "UI/UX design for a travel app with itinerary planning, booking features, and local recommendations.",
     image: "bg-gradient-to-br from-amber/30 to-neon-gold/30",
     technologies: ["Figma", "Adobe XD", "Illustrator"],
-    demoLink: "#"
+    demoLink: "#",
   },
   {
     id: 6,
     title: "Educational Platform",
     category: "Web",
-    description: "Online learning platform with course management, video streaming, and interactive quizzes.",
+    description:
+      "Online learning platform with course management, video streaming, and interactive quizzes.",
     image: "bg-gradient-to-br from-neon-gold/30 to-amber/30",
     technologies: ["React", "Node.js", "PostgreSQL"],
     demoLink: "#",
-    codeLink: "#"
-  }
+    codeLink: "#",
+  },
 ];
 
 // Categories for filter
-const categories = ["All", "Web", "Mobile", "Design"];
+const categories = ["All", "Web", "Mobile", "UI/UX Design"];
 
 const RecentWorksSection = () => {
   const [filter, setFilter] = useState("All");
 
-  const filteredProjects = filter === "All"
-    ? projectsData
-    : projectsData.filter(project => project.category === filter);
+  const filteredProjects =
+    filter === "All"
+      ? projectsData
+      : projectsData.filter((project) => project.category === filter);
 
   return (
     <section id="projects" className="py-20 px-6 relative">
@@ -99,9 +110,11 @@ const RecentWorksSection = () => {
           <div className="inline-block px-4 py-1 bg-electric-gold/10 rounded-full mb-4">
             <span className="text-electric-gold font-medium">Projects</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 glow-text">My Recent Work</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 glow-text">
+            My Recent Work
+          </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            Explore my portfolio of projects spanning web applications, mobile 
+            Explore my portfolio of projects spanning web applications, mobile
             development, and design work.
           </p>
         </div>
@@ -126,13 +139,18 @@ const RecentWorksSection = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group relative bg-muted/20 backdrop-blur-sm rounded-2xl overflow-hidden border border-electric-gold/10 hover:border-electric-gold/30 transition-all duration-300 hover:shadow-neon-gold/10">
+            <div
+              key={project.id}
+              className="group relative bg-muted/20 backdrop-blur-sm rounded-2xl overflow-hidden border border-electric-gold/10 hover:border-electric-gold/30 transition-all duration-300 hover:shadow-neon-gold/10"
+            >
               {/* Project Image/Preview */}
-              <div className={`aspect-video rounded-t-xl overflow-hidden ${project.image}`}>
+              <div
+                className={`aspect-video rounded-t-xl overflow-hidden ${project.image}`}
+              >
                 <div className="w-full h-full flex items-center justify-center">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     className="object-cover w-full h-full transition-transform transform group-hover:scale-105"
                   />
                 </div>
@@ -156,8 +174,8 @@ const RecentWorksSection = () => {
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, index) => (
-                    <span 
-                      key={index} 
+                    <span
+                      key={index}
                       className="text-xs px-2 py-1 bg-deep-charcoal rounded-full text-text-secondary"
                     >
                       {tech}
@@ -167,8 +185,8 @@ const RecentWorksSection = () => {
 
                 {/* Action Links */}
                 <div className="flex justify-between">
-                  <a 
-                    href={project.demoLink} 
+                  <a
+                    href={project.demoLink}
                     className="flex items-center gap-1 text-electric-gold hover:text-white text-sm"
                   >
                     <ExternalLink size={14} />
@@ -176,12 +194,12 @@ const RecentWorksSection = () => {
                   </a>
 
                   {project.codeLink && (
-                    <a 
-                      href={project.codeLink} 
+                    <a
+                      href={project.codeLink}
                       className="flex items-center gap-1 text-electric-gold hover:text-white text-sm"
                     >
                       <Code size={14} />
-                      <span>View Code</span>
+                      <span>View</span>
                     </a>
                   )}
                 </div>
@@ -192,8 +210,8 @@ const RecentWorksSection = () => {
 
         {/* View All Projects Button */}
         <div className="text-center mt-12">
-          <a 
-            href="#" 
+          <a
+            href="#"
             className="px-8 py-3 rounded-full border border-electric-gold text-electric-gold hover:bg-electric-gold/10 transition-all hover:shadow-neon-gold inline-flex items-center gap-2"
           >
             <span>View All Projects</span>
