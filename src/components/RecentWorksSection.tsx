@@ -4,7 +4,7 @@ import { Code, ExternalLink } from "lucide-react";
 import votelyImage from "../assest/votely.png"; // Import the image
 import zenauraImage from "../assest/zenaura.png"; // Import the image
 import moneymapImage from "../assest/moneymap.png"; // Import the image
-import VestaImage from "../assest/vesta.png"; // Import the image
+import VestaImage from "../assest/vestaimage.png"; // Import the image
 import FoodDeliveryImage from "../assest/FoodDelivery.png"; // Import the image
 
 // Project types
