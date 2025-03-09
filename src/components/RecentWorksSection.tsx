@@ -6,6 +6,7 @@ import zenauraImage from "../assets/zenaura.png"; // Import the image
 import moneymapImage from "../assets/moneymap.png"; // Import the image
 import VestaImage from "../assets/vesta.png"; // Import the image
 import FoodDeliveryImage from "../assets/FoodDelivery.png"; // Import the image
+import TastyGoImage from "../assets/TastyGo.png"; // Import the image
 
 // Project types
 type Technology = string;
@@ -60,31 +61,24 @@ const projectsData: Project[] = [
     id: 4,
     title: "Vésta Clothing Site UI",
     category: "UI/UX Design",
-    description: "A modern and visually appealing UI design for an e-commerce clothing store, created in Figma with a focus on user experience and aesthetics.",
+    description:
+      "A modern and visually appealing UI design for an e-commerce clothing store, created in Figma with a focus on user experience and aesthetics.",
     image: VestaImage,
     technologies: ["Figma", "Photoshop", "Illustrator"],
-    demoLink: "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui",
-    codeLink: "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui"
+    demoLink:
+      "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui",
+    codeLink:
+      "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui",
   },
-  
-  {
-    id: 5,
-    title: "Travel Companion",
-    category: "Design",
-    description:
-      "UI/UX design for a travel app with itinerary planning, booking features, and local recommendations.",
-    image: "bg-gradient-to-br from-amber/30 to-neon-gold/30",
-    technologies: ["Figma", "Adobe XD", "Illustrator"],
-    demoLink: "#",
-  },
+
   {
     id: 6,
-    title: "Educational Platform",
-    category: "Web",
+    title: "Food Delivery App UI",
+    category: "UI/UX Design",
     description:
-      "Online learning platform with course management, video streaming, and interactive quizzes.",
-    image: "bg-gradient-to-br from-neon-gold/30 to-amber/30",
-    technologies: ["React", "Node.js", "PostgreSQL"],
+      "A sleek and intuitive UI design for a food delivery app, created in Figma with a focus on usability, aesthetics, and smooth navigation.",
+    image: TastyGoImage,
+    technologies: ["Figma", "Photoshop", "Illustrator"],
     demoLink: "#",
     codeLink: "#",
   },
