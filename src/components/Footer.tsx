@@ -12,7 +12,6 @@ const Footer = () => {
             <a href="#" className="text-2xl font-bold text-text-primary">
               <img
                 src="src\assest\logo.png"
-                alt="Logo"
                 className="inline-block h-8 mr-2"
               />
             </a>
