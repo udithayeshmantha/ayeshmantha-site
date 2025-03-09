@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import logo from "../assest/logo.png"; // Import the logo image
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +28,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#" className="text-2xl font-bold text-text-primary">
           <img
-            src="src\assest\logo.png"
+            src={logo} // Use the imported logo
             alt="Logo"
             className="inline-block h-8 mr-2"
           />
