@@ -1,3 +1,4 @@
+// filepath: c:\Users\udith\Desktop\GITHUB Project\portfolio-site\src\components\GitHubPanel.tsx
 import React, { useState, useEffect } from 'react';
 import { Github, GitPullRequest, Star, GitCommit, MessageSquare } from 'lucide-react';
 import { Button } from './ui/button';
@@ -30,7 +31,7 @@ const GitHubPanel: React.FC = () => {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
 
   const username = "udithayeshmantha";  // change to your GitHub username
-  const GITHUB_TOKEN = "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"; // Replace with your GitHub personal access token
+  const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN; // Use the environment variable
 
   const fetchGitHubData = async () => {
     if (!GITHUB_TOKEN) {
@@ -139,15 +140,15 @@ const GitHubPanel: React.FC = () => {
     fetchGitHubData();
   }, [year]);
 
-const getLevelColor = (level: number) => {
-  switch (level) {
-    case 1: return 'bg-green-500 bg-opacity-25'; // Light green with 25% opacity
-    case 2: return 'bg-green-500 bg-opacity-50'; // Medium light green with 50% opacity
-    case 3: return 'bg-green-500 bg-opacity-75'; // Medium green with 75% opacity
-    case 4: return 'bg-green-500 bg-opacity-100'; // Dark green with 100% opacity
-    default: return 'bg-muted'; // No contributions
-  }
-};
+  const getLevelColor = (level: number) => {
+    switch (level) {
+      case 1: return 'bg-green-500 bg-opacity-25'; // Light green with 25% opacity
+      case 2: return 'bg-green-500 bg-opacity-50'; // Medium light green with 50% opacity
+      case 3: return 'bg-green-500 bg-opacity-75'; // Medium green with 75% opacity
+      case 4: return 'bg-green-500 bg-opacity-100'; // Dark green with 100% opacity
+      default: return 'bg-muted'; // No contributions
+    }
+  };
 
   if (loading) {
     return (
@@ -216,14 +217,14 @@ const getLevelColor = (level: number) => {
         </div>
       </div>
 
-      <div className="justify-between items-center text-sm text-text-secondary mb-2 hidden md:block">
+      <div className="justify-between items-center text-sm text-text-secondary mb-2 hidden md:flex">
         <span>Less</span>
         <div className="flex items-center gap-1">
           <span className="w-3 h-3 bg-muted rounded-sm"></span>
-          <span className="w-3 h-3 bg-electric-blue/30 rounded-sm"></span>
-          <span className="w-3 h-3 bg-electric-blue/60 rounded-sm"></span>
-          <span className="w-3 h-3 bg-electric-blue/80 rounded-sm"></span>
-          <span className="w-3 h-3 bg-electric-blue rounded-sm"></span>
+          <span className="w-3 h-3 bg-green-500 bg-opacity-25 rounded-sm"></span>
+          <span className="w-3 h-3 bg-green-500 bg-opacity-50 rounded-sm"></span>
+          <span className="w-3 h-3 bg-green-500 bg-opacity-75 rounded-sm"></span>
+          <span className="w-3 h-3 bg-green-500 bg-opacity-100 rounded-sm"></span>
         </div>
         <span>More</span>
       </div>
@@ -243,42 +244,6 @@ const getLevelColor = (level: number) => {
           ))}
         </div>
       </div>
-
-      {/* <div className="p-4 mb-6 rounded-lg bg-muted/30 border border-electric-blue/10 text-text-secondary">
-        <div className="flex items-center gap-2 text-text-primary mb-1">
-          <span className="text-base font-medium">{userData.bio || 'UI/UX Designer & Developer'}</span>
-        </div>
-        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          {userData.location && (
-            <div className="flex items-center gap-1">
-              <span>📍</span> {userData.location}
-            </div>
-          )}
-          {userData.company && (
-            <div className="flex items-center gap-1">
-              <span>🏢</span> {userData.company}
-            </div>
-          )}
-          {userData.blog && (
-            <div className="flex items-center gap-1">
-              <span>🔗</span>
-              <a
-                href={userData.blog.startsWith('http') ? userData.blog : `https://${userData.blog}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-electric-blue hover:underline"
-              >
-                {userData.blog}
-              </a>
-            </div>
-          )}
-          {userData.createdAt && (
-            <div className="flex items-center gap-1">
-              <span>📅</span> Joined {new Date(userData.createdAt).toLocaleDateString()}
-            </div>
-          )}
-        </div>
-      </div> */}
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-8">
         <div className="flex flex-col items-center">
