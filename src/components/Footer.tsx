@@ -1,5 +1,6 @@
 import React from "react";
 import { Heart } from "lucide-react";
+import logo from "../assets/logo.png"; // Import the logo image
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +12,8 @@ const Footer = () => {
           <div className="mb-4 md:mb-0">
             <a href="#" className="text-2xl font-bold text-text-primary">
               <img
-                src="src\assest\logo.png"
+                src={logo} // Use the imported logo
+                alt="Logo"
                 className="inline-block h-8 mr-2"
               />
             </a>

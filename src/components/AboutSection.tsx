@@ -63,7 +63,7 @@ const AboutSection = () => {
             <div className="relative z-10 border border-electric-gold/30 rounded-full p-1 bg-deep-charcoal/50 backdrop-blur-sm overflow-hidden transition-all duration-500">
               <div className="aspect-square rounded-full overflow-hidden">
                 <img
-                  src="src/assest/aboutme.jpg"
+                  src="src/assets/aboutme.jpg"
                   alt="About Me"
                   className="w-full h-full object-cover"
                 />

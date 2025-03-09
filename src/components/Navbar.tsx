@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import logo from "../assest/logo.png"; // Import the logo image
+import logo from "../assets/logo.png"; // Import the logo image
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

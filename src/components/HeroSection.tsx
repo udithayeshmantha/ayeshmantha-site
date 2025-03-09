@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowDown } from "lucide-react";
+import profileImage from "../assets/pp.jpg"; // Import the profile image
 
 const HeroSection = () => {
   return (
@@ -131,7 +132,7 @@ const HeroSection = () => {
             {/* Profile image with gold accents */}
             <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden relative">
               <img
-                src="src\assest\pp.jpg"
+                src={profileImage} // Use the imported profile image
                 alt="Your Photo"
                 className="w-full h-full object-cover"
               />

@@ -1,11 +1,11 @@
 // filepath: c:\Users\udith\Desktop\GITHUB Project\portfolio-site\src\components\RecentWorksSection.tsx
 import React, { useState } from "react";
 import { Code, ExternalLink } from "lucide-react";
-import votelyImage from "../assest/votely.png"; // Import the image
-import zenauraImage from "../assest/zenaura.png"; // Import the image
-import moneymapImage from "../assest/moneymap.png"; // Import the image
-import VestaImage from "../assest/vesta.png"; // Import the image
-import FoodDeliveryImage from "../assest/FoodDelivery.png"; // Import the image
+import votelyImage from "../assets/votely.png"; // Import the image
+import zenauraImage from "../assets/zenaura.png"; // Import the image
+import moneymapImage from "../assets/moneymap.png"; // Import the image
+import VestaImage from "../assets/vesta.png"; // Import the image
+import FoodDeliveryImage from "../assets/FoodDelivery.png"; // Import the image
 
 // Project types
 type Technology = string;

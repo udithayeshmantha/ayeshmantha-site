@@ -1,4 +1,3 @@
-// filepath: c:\Users\udith\Desktop\GITHUB Project\portfolio-site\src\components\GitHubPanel.tsx
 import React, { useState, useEffect } from 'react';
 import { Github, GitPullRequest, Star, GitCommit, MessageSquare } from 'lucide-react';
 import { Button } from './ui/button';
