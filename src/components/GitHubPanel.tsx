@@ -30,7 +30,7 @@ const GitHubPanel: React.FC = () => {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
 
   const username = "udithayeshmantha";  // change to your GitHub username
-  const GITHUB_TOKEN = "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"; // Replace with your GitHub personal access token
+  const GITHUB_TOKEN = "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"; // Replace with your GitHub personal access token
 
   const fetchGitHubData = async () => {
     if (!GITHUB_TOKEN) {
