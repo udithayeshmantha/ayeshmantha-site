@@ -4,7 +4,8 @@ import { Code, ExternalLink } from "lucide-react";
 import votelyImage from "../assest/votely.png"; // Import the image
 import zenauraImage from "../assest/zenaura.png"; // Import the image
 import moneymapImage from "../assest/moneymap.png"; // Import the image
-// import VestaImage from "../assest/vesta.png"; // Import the image
+import VestaImage from "../assest/vesta.png"; // Import the image
+import FoodDeliveryImage from "../assest/FoodDelivery.png"; // Import the image
 
 // Project types
 type Technology = string;
@@ -60,7 +61,7 @@ const projectsData: Project[] = [
     title: "Vésta Clothing Site UI",
     category: "UI/UX Design",
     description: "A modern and visually appealing UI design for an e-commerce clothing store, created in Figma with a focus on user experience and aesthetics.",
-    image: "VestaImage",
+    image: VestaImage,
     technologies: ["Figma", "Photoshop", "Illustrator"],
     demoLink: "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui",
     codeLink: "https://www.figma.com/community/file/1480308391245874729/vesta-cloth-shop-ui"
@@ -68,25 +69,14 @@ const projectsData: Project[] = [
   
   {
     id: 5,
-    title: "Travel Companion",
-    category: "Design",
-    description:
-      "UI/UX design for a travel app with itinerary planning, booking features, and local recommendations.",
-    image: "bg-gradient-to-br from-amber/30 to-neon-gold/30",
-    technologies: ["Figma", "Adobe XD", "Illustrator"],
-    demoLink: "#",
-  },
-  {
-    id: 6,
-    title: "Educational Platform",
-    category: "Web",
-    description:
-      "Online learning platform with course management, video streaming, and interactive quizzes.",
-    image: "bg-gradient-to-br from-neon-gold/30 to-amber/30",
-    technologies: ["React", "Node.js", "PostgreSQL"],
-    demoLink: "#",
-    codeLink: "#",
-  },
+    title: "Food Delivery App UI",
+    category: "UI/UX Design",
+    description: "A sleek and intuitive UI design for a food delivery app, created in Figma with a focus on usability, aesthetics, and smooth navigation.",
+    image: FoodDeliveryImage,
+    technologies: ["Figma", "Photoshop", "Illustrator"],
+    demoLink: "https://www.figma.com/community/file/1480602867035811515",
+    codeLink: "https://www.figma.com/community/file/1480602867035811515"
+  }
 ];
 
 // Categories for filter
