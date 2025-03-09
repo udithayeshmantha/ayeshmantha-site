@@ -79,8 +79,8 @@ const projectsData: Project[] = [
       "A sleek and intuitive UI design for a food delivery app, created in Figma with a focus on usability, aesthetics, and smooth navigation.",
     image: TastyGoImage,
     technologies: ["Figma", "Photoshop", "Illustrator"],
-    demoLink: "#",
-    codeLink: "#",
+    demoLink: "https://www.figma.com/community/file/1480602867035811515/food-delivery-app",
+    codeLink: "https://www.figma.com/community/file/1480602867035811515/food-delivery-app",
   },
 ];
 
